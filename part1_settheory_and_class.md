@@ -47,7 +47,9 @@
 「$\forall x \in A\ \exists y \in B\ (x = f(y))$」は「$A$ のどの $x$ を取っても、$f(y)=x$ となる $B$ の $y$ が（少なくとも一つ）存在する」と読む。
 
 AND ゲートの真理値表は内包表記で
+
 $$ \{(x_1,x_2) \in \{0,1\}^2 : x_1 = 1 \land x_2 = 1\} = \{(1,1)\} $$
+
 と書ける。「$y=1$ になる入力の集合」をこう表現できることが、2部の線形分離可能性の定義を読む基礎になる。
 
 ### 理由
@@ -123,9 +125,11 @@ list(itertools.product([0, 1], repeat=2))
 ### 定義・結果
 
 **(a) 線形分離可能性**
+
 $$ \exists\, w \in \mathbb{R}^n,\ \exists\, b \in \mathbb{R}\ \text{ s.t. }\ \forall i\ \bigl[(t^{(i)}=1 \Rightarrow w\cdot x^{(i)} + b > 0)\ \wedge\ (t^{(i)}=0 \Rightarrow w\cdot x^{(i)} + b \le 0)\bigr] $$
 
 **(b) 関数完全性**
+
 $$ \forall n \in \mathbb{N},\ \forall f : \{0,1\}^n \to \{0,1\},\ \exists\, G\text{ の素子の非巡回結合 } C \text{ s.t. } C \equiv f $$
 
 ### 例
