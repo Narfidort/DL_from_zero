@@ -40,14 +40,14 @@
 | $A \cup B$ | $A$ と $B$ の和集合 |
 | $A \setminus B$ | $A$ から $B$ を除いた差集合 |
 | $\emptyset$ | 空集合 |
-| $\{x \in A : P(x)\}$ | $A$ の元で性質 $P$ を満たすものすべて（内包表記） |
+| $\\{x \in A : P(x)\\}$ | $A$ の元で性質 $P$ を満たすものすべて（内包表記） |
 
 ### 例
 
 「 $\forall x \in A\ \exists y \in B\ (x = f(y))$ 」は「 $A$ のどの $x$ を取っても、 $f(y)=x$ となる $B$ の $y$ が（少なくとも一つ）存在する」と読む。
 
 AND ゲートの真理値表は内包表記で
-$$ \{(x_1,x_2) \in \{0,1\}^2 : x_1 = 1 \land x_2 = 1\} = \{(1,1)\} $$
+$$ \\{(x_1,x_2) \in \\{0,1\\}^2 : x_1 = 1 \land x_2 = 1\\} = \\{(1,1)\\} $$
 と書ける。「 $y=1$ になる入力の集合」をこう表現できることが、2部の線形分離可能性の定義を読む基礎になる。
 
 ### 理由
@@ -56,11 +56,11 @@ $\forall x\,\exists y\, P(x,y)$ と $\exists y\,\forall x\, P(x,y)$ は意味が
 
 ### サンプルコード（記法とPythonの対応）
 
-内包表記 $\{x \in A : P(x)\}$ は、Pythonのリスト内包表記とそのまま対応する。
+内包表記 $\\{x \in A : P(x)\\}$ は、Pythonのリスト内包表記とそのまま対応する。
 
 ```python
 A = [0, 1]
-# {(x1,x2) in {0,1}^2 : x1=1 and x2=1}
+# \{(x1,x2) in \{0,1\}^2 : x1=1 and x2=1\}
 result = [(x1, x2) for x1 in A for x2 in A if x1 == 1 and x2 == 1]
 print(result)   # [(1, 1)]
 ```
@@ -78,12 +78,12 @@ print(result)   # [(1, 1)]
 
 ### モチベ
 
-パーセプトロンの入力 $x=(x_1,x_2)$ や重み $w$ が「どんな集合の元なのか」を正確に言いたい。 $\mathbb{R}^n$ や $\{0,1\}^2$ という記法の意味を確認する。
+パーセプトロンの入力 $x=(x_1,x_2)$ や重み $w$ が「どんな集合の元なのか」を正確に言いたい。 $\mathbb\{R\}^n$ や $\\{0,1\\}^2$ という記法の意味を確認する。
 
 ### 定義・結果
 
 - **順序対** $(a,b)$: 順番のついた2つの要素の組。 $(a,b) \ne (b,a)$（ $a\ne b$ のとき）。
-- **直積** $A \times B := \{(a,b) : a \in A,\ b \in B\}$。
+- **直積** $A \times B := \\{(a,b) : a \in A,\ b \in B\\}$。
 - **$n$ 重直積（冪）** $A^n := A \times A \times \cdots \times A$（ $n$ 回）。
 - **写像** $f: A \to B$ … $A$ の各元に $B$ の元をちょうど一つ対応させる規則。 $A$ を**定義域**、 $B$ を**値域**と呼ぶ。 $f(x)$ をその**像**と呼ぶ。
 
@@ -91,15 +91,15 @@ print(result)   # [(1, 1)]
 
 $$ \\{0,1\\}^2 = \\{(0,0)\,(1,0)\,(0,1)\,(1,1)\\} $$
 
-これがAND/OR/NAND/XORの入力全体。 $n=2$ の場合のパーセプトロンの入力 $x=(x_1,x_2)$ はこの集合の元として捉えている。 $\mathbb{R}^n$ は実数の$n$重直積で、重み$w$や入力$x$が住む空間。
+これがAND/OR/NAND/XORの入力全体。 $n=2$ の場合のパーセプトロンの入力 $x=(x_1,x_2)$ はこの集合の元として捉えている。 $\mathbb\{R\}^n$ は実数の$n$重直積で、重み$w$や入力$x$が住む空間。
 
 ### 理由
 
-パーセプトロンは写像 $y : \{0,1\}^2 \to \{0,1\}$ そのもの。 $y(x_1,x_2)$ という数学の記法と、Pythonで `gate(x1, x2)` と書くことは、本質的に同じものを表している。これが2部でclassを導入する動機（ $y=P(x)$ と `p(x)` を一致させたい）に直結する。
+パーセプトロンは写像 $y : \\{0,1\\}^2 \to \\{0,1\\}$ そのもの。 $y(x_1,x_2)$ という数学の記法と、Pythonで `gate(x1, x2)` と書くことは、本質的に同じものを表している。これが2部でclassを導入する動機（ $y=P(x)$ と `p(x)` を一致させたい）に直結する。
 
 ### サンプルコード（記法とPythonの対応）
 
-$\{0,1\}^2$ のような直積は、Pythonでは `itertools.product` で生成できる。
+$\\{0,1\\}^2$ のような直積は、Pythonでは `itertools.product` で生成できる。
 
 ```python
 import itertools
@@ -109,7 +109,7 @@ list(itertools.product([0, 1], repeat=2))
 
 ### Q&A・演習
 
-- $\{0,1\}^3$ の元を全て書き出せ（何通りあるか先に計算してから確認する）。
+- $\\{0,1\\}^3$ の元を全て書き出せ（何通りあるか先に計算してから確認する）。
 - パーセプトロンが「写像」であるとはどういうことか、 $f:A\to B$ の定義に沿って説明せよ。
 
 ---
@@ -123,10 +123,10 @@ list(itertools.product([0, 1], repeat=2))
 ### 定義・結果
 
 **(a) 線形分離可能性**
-$$ \exists\, w \in \mathbb{R}^n,\ \exists\, b \in \mathbb{R}\ \text{ s.t. }\ \forall i\ \bigl[(t^{(i)}=1 \Rightarrow w\cdot x^{(i)} + b > 0)\ \wedge\ (t^{(i)}=0 \Rightarrow w\cdot x^{(i)} + b \le 0)\bigr] $$
+$$ \exists\, w \in \mathbb\{R\}^n,\ \exists\, b \in \mathbb\{R\}\ \text\{ s.t. \}\ \forall i\ \bigl[(t^\{(i)\}=1 \Rightarrow w\cdot x^\{(i)\} + b > 0)\ \wedge\ (t^\{(i)\}=0 \Rightarrow w\cdot x^\{(i)\} + b \le 0)\bigr] $$
 
 **(b) 関数完全性**
-$$ \forall n \in \mathbb{N},\ \forall f : \{0,1\}^n \to \{0,1\},\ \exists\, G\text{ の素子の非巡回結合 } C \text{ s.t. } C \equiv f $$
+$$ \forall n \in \mathbb\{N\},\ \forall f : \\{0,1\\}^n \to \\{0,1\\},\ \exists\, G\text\{ の素子の非巡回結合 \} C \text\{ s.t. \} C \equiv f $$
 
 ### 例
 
@@ -162,7 +162,7 @@ class Dog:
         self.name = name        # self.xxx = ... でインスタンス自身に属性を持たせる
 
     def bark(self):              # メソッド：第一引数は必ず self
-        return f"{self.name}: Woof!"
+        return f"\{self.name\}: Woof!"
 ```
 
 - `class` … 型（クラス）を定義するキーワード。
@@ -196,11 +196,11 @@ class Animal:
     def __init__(self, name):
         self.name = name
     def speak(self):
-        return f"{self.name} makes a sound"
+        return f"\{self.name\} makes a sound"
 
 class Dog(Animal):              # 新しい振る舞い(speakの上書き)を追加 -> 正しい継承
     def speak(self):
-        return f"{self.name}: Woof!"
+        return f"\{self.name\}: Woof!"
 
 class USDAccount(BankAccount):   # currencyという「データ」が違うだけ -> 避けるべき設計
     def __init__(self, balance):
