@@ -30,13 +30,13 @@
 
 まず一番普遍的な形で定義する。入力次元を $n \in \mathbb{N}$ とし、入力 $x = (x_1,\dots,x_n) \in \mathbb{R}^n$、重み $w = (w_1,\dots,w_n) \in \mathbb{R}^n$、しきい値 $\theta \in \mathbb{R}$ に対し
 
-$$ y = \begin{cases} 1 & \text{if } \displaystyle\sum_{i=1}^n w_i x_i > \theta \\[4pt] 0 & \text{if } \displaystyle\sum_{i=1}^n w_i x_i \le \theta \end{cases} \qquad \text{すなわち} \qquad y = 1 \iff w \cdot x > \theta. $$
+$$ y = \begin{cases} 1 & \text{if } \displaystyle\sum_{i=1}^n w_i x_i > \theta \\\\[4pt] 0 & \text{if } \displaystyle\sum_{i=1}^n w_i x_i \le \theta \end{cases} \qquad \text{すなわち} \qquad y = 1 \iff w \cdot x > \theta. $$
 
 この定義に $n$ の値そのものへの制約はない。決定境界 $w\cdot x = \theta$ は $\mathbb{R}^n$ 内の超平面（hyperplane、 $n-1$ 次元のアフィン部分空間）であり、 $n=2$ なら直線、 $n=3$ なら平面になる。
 
 **この章で $n=2$ に限定する**（理由は後述）。 $n=2$ の場合、式は
 
-$$ y = \begin{cases} 0 & (w_1 x_1 + w_2 x_2 \le \theta) \\ 1 & (w_1 x_1 + w_2 x_2 > \theta) \end{cases} \tag{2.1} $$
+$$ y = \begin{cases} 0 & (w_1 x_1 + w_2 x_2 \le \theta) \\\\ 1 & (w_1 x_1 + w_2 x_2 > \theta) \end{cases} \tag{2.1} $$
 
 ### 例
 
